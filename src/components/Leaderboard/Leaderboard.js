@@ -1,14 +1,10 @@
 import React from "react";
+import "./Leaderboard.css"
 
 function Leaderboard() {
     return (
         <div className="leaderboard">
-            <div className="leaderboard_head">
-                {"table head"}
-            </div>
-            <div className="leaderboard_main">
-                {"table content"}
-            </div>
+            
         </div>
     );
 }

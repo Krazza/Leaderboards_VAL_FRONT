@@ -1,6 +1,39 @@
-.footer {
-    margin-top: auto;
+.footer, .footer_content, .footer_box {
     display: flex;
     justify-content: center;
+    align-items: center;
+}
+
+.footer, .footer_content {
+    flex-direction: column;
+}
+
+.footer {
+    margin-top: auto;
+    height: 6vh;
     width: 100%;
+    font-family: 'Oswald', sans-serif;
+    color: #ece8e1;
+}
+
+.footer_content {
+    width: 50%;
+    margin-bottom: 20px;
+}
+
+.footer_box {
+    column-gap: 2vw;
+    width: 100%;
+    height: 100%;
+}
+
+.footer-divider {
+    border: 0;
+    border-top: 2px solid #202b43;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.author {
+    color: var(--riot-color);
 }
