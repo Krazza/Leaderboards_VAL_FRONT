@@ -23,6 +23,7 @@
     background: linear-gradient(180deg,#ff4650,rgba(240,121,98,.7),rgba(240,121,98,0) 800px) border-box;
     -webkit-mask: linear-gradient(#fff 0 0) padding-box,linear-gradient(#fff 0 0);
     -webkit-mask-composite: destination-out;
+    z-index: 1;
 }
 
 .leaderboard_content {
@@ -30,4 +31,85 @@
     border-radius: 20px;
     background-color: #101823;
 
+}
+
+.leaderboard_head{
+    display: flex;
+    flex-direction: column;
+    height: fit-content;
+    row-gap: 1vh;
+}
+
+.leaderboard_head_controls {
+    display: flex;
+    justify-content: space-between;
+}
+
+.leaderboard_head_info {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.5rem;
+    color: #ece8e1;
+}
+
+.leaderboard_table {
+    margin-top: 1vh;
+}
+
+.search {
+    background-color: #161f2f;
+    z-index: 2;
+    width: 300px;
+    position: relative;
+    padding: 9px 13px;
+    border-radius: 10px;
+    color: #b6bec9;
+    transition: .2s ease;
+    border: 1px solid #202b43;
+}
+
+.search:focus {
+    outline: none !important;
+    border-color: #ff4650;
+}
+
+table {
+    width: 100%;
+}
+
+.table_head {
+    width: calc(100% - 36px);
+    display: flex;
+    background-color: #202b43;
+    padding: 0 18px;
+    align-items: center;
+    margin-bottom: 12px;
+    border-radius: 10px;
+}
+
+.head_item{
+    padding: 8px 0;
+    text-align: left;
+    font-family: Roboto;
+    color: #ece8e1;
+    font-size: 18px;
+    font-size: 1rem;
+    font-weight: 500;
+}
+
+.rank-header {
+    flex: 0.25 1;
+}
+
+.player-header {
+    flex: 2 1;
+}
+
+.winrate-header {
+    flex: 0.4 1;
+    text-align: center;
+}
+
+.games {
+    flex: 0.2 1;
+    text-align: center;
 }

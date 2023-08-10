@@ -5,7 +5,7 @@ function Footer() {
     return(
         <footer className="footer">
             <div className="footer_content">
-            <hr class="footer-divider"/>
+            <hr className="footer-divider"/>
                 <div className="footer_box">
                     <p>{"VALORANT"}</p>
                     <p>{"WEBSITE"}</p>
