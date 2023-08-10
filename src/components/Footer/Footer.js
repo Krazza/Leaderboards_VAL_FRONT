@@ -9,7 +9,7 @@ function Footer() {
                 <div className="footer_box">
                     <p>{"VALORANT"}</p>
                     <p>{"WEBSITE"}</p>
-                    <p>{"CREATED BY"} <span className="author">{"RapperBugZapper#NEON"}</span></p>
+                    <p>{"CREATED BY"} <span className="author">{"VLADISLAV MUONDO / RapperBugZapper#NEON"}</span></p>
                     <p>{"GITHUB"}</p>
                     <p>{"LINKEDIN"}</p>
                 </div>
