@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import MMRService from "../../services/MMR";
 import "./Leaderboard.css"
+import CustomSpinner from "../BootstrapElements/CustomSpinner";
+import Player from "./Player";
 
 function Leaderboard() {
+
+    const [chosenSeason, setChosenSeason] = useState("e7a1");
+    const [playersData, setPlayersData] = useState();
+    const [isLoading, setIsLoading] = useState(true);
+
+    useEffect(() => {
+        async function FetchPlayerData() {
+            setPlayersData(await MMRService.getAll());
+        }
+        FetchPlayerData();
+    }, [])
+
+    useEffect(() => {
+        setIsLoading(false);
+    }, [playersData])
+
     return (
         <div className="leaderboard">
             <div className="leaderboard_head">
@@ -23,9 +42,20 @@ function Leaderboard() {
                             <th className="head_item games">{"Games"}</th>
                         </tr>
                     </thead>
+                    { isLoading ?
+                    <tbody className="spinnerposition">
+                        <CustomSpinner/>
+                    </tbody> 
+                    : 
                     <tbody>
-
-                    </tbody>
+                        {
+                            playersData?.map((player, index) => 
+                            <Player key={player.givenName} name={player.givenName} currentTier={player.MMRData.currentTier}
+                                currentTierPatched={player.MMRData.currentTierPatched} elo={player.MMRData.elo}
+                                images={player.MMRData.images} 
+                                place={index}/>)
+                        }
+                    </tbody> }
                 </table>
             </div>
         </div>

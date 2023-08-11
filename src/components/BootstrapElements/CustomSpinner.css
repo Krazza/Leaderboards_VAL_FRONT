@@ -1,0 +1,5 @@
+.spintowin {
+    border-left-color: var(--riot-color);
+    border-top-color: var(--riot-color);
+    border-bottom-color: var(--riot-color);
+}

@@ -1,0 +1,30 @@
+.player {
+    width: calc(100% - 36px)!important;
+    display: flex;
+    align-items: center;
+    padding: 9.5px 18px;
+    transition: .1s ease;
+    text-decoration: none;
+    height: auto!important;
+    font-family: 'Roboto';
+    font-size: 1rem;
+    color: #ece8e1;
+}
+
+.player-rank {
+    flex: 0.25 1;
+}
+
+.player-name {
+    flex: 2 1;
+}
+
+.player-winrate {
+    flex: 0.4 1;
+    text-align: center;
+}
+
+.player-games {
+    flex: 0.2 1;
+    text-align: center;
+}
