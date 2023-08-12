@@ -12,7 +12,9 @@ function Leaderboard() {
 
     useEffect(() => {
         async function FetchPlayerData() {
-            setPlayersData(await MMRService.getAll());
+            const data = await MMRService.getAll();
+            data.sort((a, b) => (a.MMRData.elo > b.MMRData.elo) ? -1 : (b.MMRData.elo > a.MMRData.elo) ? 1 : 0);
+            setPlayersData(data);
         }
         FetchPlayerData();
     }, [])
@@ -21,6 +23,8 @@ function Leaderboard() {
         setIsLoading(false);
     }, [playersData])
 
+    if(playersData !== undefined)
+        console.log(playersData)
     return (
         <div className="leaderboard">
             <div className="leaderboard_head">
@@ -37,6 +41,7 @@ function Leaderboard() {
                         <tr className="table_head">
                             <th className="head_item rank-header">{"#"}</th>
                             <th className="head_item rank-header">{"Rank"}</th>
+                            <th className="head_item rank-header">{"RR"}</th>
                             <th className="head_item player-header">{"Player"}</th>
                             <th className="head_item winrate-header">{"Win Rate"}</th>
                             <th className="head_item games">{"Games"}</th>
@@ -52,8 +57,7 @@ function Leaderboard() {
                             playersData?.map((player, index) => 
                             <Player key={player.givenName} name={player.givenName} currentTier={player.MMRData.currentTier}
                                 currentTierPatched={player.MMRData.currentTierPatched} elo={player.MMRData.elo}
-                                images={player.MMRData.images} 
-                                place={index}/>)
+                                images={player.MMRData.images} place={index + 1} season={player.MMRData.seasons[chosenSeason]}/>)
                         }
                     </tbody> }
                 </table>

@@ -15,6 +15,11 @@
     flex: 0.25 1;
 }
 
+.player-rank img {
+    height: 3vh;
+    width: auto;
+}
+
 .player-name {
     flex: 2 1;
 }
@@ -27,4 +32,16 @@
 .player-games {
     flex: 0.2 1;
     text-align: center;
+}
+
+.even {
+    background-color: #161f2f;
+}
+
+.odd {
+    background-color: #101823;
+}
+
+.elo {
+    color: #16e5b4;
 }
