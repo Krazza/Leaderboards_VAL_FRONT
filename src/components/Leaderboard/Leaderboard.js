@@ -3,7 +3,7 @@ import MMRService from "../../services/MMR";
 import "./Leaderboard.css"
 import CustomSpinner from "../BootstrapElements/CustomSpinner";
 import Player from "./Player";
-import Filter from "../Filter/Filter";
+import Controls from "./Controls";
 
 function Leaderboard() {
 
@@ -26,20 +26,13 @@ function Leaderboard() {
     }, [playersData])
 
 
-    const hadleChange = (event) => {
+    const handleChange = (event) => {
         setFilter(event.target.value);
     }
 
     return (
         <div className="leaderboard">
-            <div className="leaderboard_head">
-                <div className="leaderboard_head_info">
-                    <h2>{"MEET THE CLOWNS:"}</h2>
-                </div>
-                <div className="leaderboard_head_controls">
-                    <Filter handleChange={hadleChange}/>
-                </div>
-            </div>
+            <Controls handleChange={handleChange}/>
             <div className="leaderboard_table">
                 <table>
                     <thead>
