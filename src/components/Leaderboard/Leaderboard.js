@@ -3,12 +3,14 @@ import MMRService from "../../services/MMR";
 import "./Leaderboard.css"
 import CustomSpinner from "../BootstrapElements/CustomSpinner";
 import Player from "./Player";
+import Filter from "../Filter/Filter";
 
 function Leaderboard() {
 
     const [chosenSeason, setChosenSeason] = useState("e7a1");
     const [playersData, setPlayersData] = useState();
     const [isLoading, setIsLoading] = useState(true);
+    const [filter, setFilter] = useState("");
 
     useEffect(() => {
         async function FetchPlayerData() {
@@ -23,8 +25,11 @@ function Leaderboard() {
         setIsLoading(false);
     }, [playersData])
 
-    if(playersData !== undefined)
-        console.log(playersData)
+
+    const hadleChange = (event) => {
+        setFilter(event.target.value);
+    }
+
     return (
         <div className="leaderboard">
             <div className="leaderboard_head">
@@ -32,7 +37,7 @@ function Leaderboard() {
                     <h2>{"MEET THE CLOWNS:"}</h2>
                 </div>
                 <div className="leaderboard_head_controls">
-                    <input className="search" type="text" name="search" placeholder="Search"/>
+                    <Filter handleChange={hadleChange}/>
                 </div>
             </div>
             <div className="leaderboard_table">
@@ -54,7 +59,8 @@ function Leaderboard() {
                     : 
                     <tbody>
                         {
-                            playersData?.map((player, index) => 
+                            playersData?.filter(player => player.givenName.toLowerCase().includes(filter.toLocaleLowerCase()))
+                            .map((player, index) => 
                             <Player key={player.givenName} name={player.givenName} currentTier={player.MMRData.currentTier}
                                 currentTierPatched={player.MMRData.currentTierPatched} elo={player.MMRData.elo}
                                 images={player.MMRData.images} place={index + 1} season={player.MMRData.seasons[chosenSeason]}/>)
