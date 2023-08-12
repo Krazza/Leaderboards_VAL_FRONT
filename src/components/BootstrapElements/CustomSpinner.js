@@ -7,7 +7,7 @@ function CustomSpinner() {
       <td>
       <Spinner className='spintowin' animation="border" role="status">
       <span className="visually-hidden">{"Loading..."}</span>
-    </Spinner>
+      </Spinner>
       </td>
     </tr>
   );
