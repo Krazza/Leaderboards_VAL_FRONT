@@ -38,3 +38,12 @@
 .author {
     color: var(--riot-color);
 }
+
+.footer a {
+    text-decoration: none;
+    color: #ece8e1;
+}
+
+.footer a:hover {
+    color: var(--riot-color);
+}

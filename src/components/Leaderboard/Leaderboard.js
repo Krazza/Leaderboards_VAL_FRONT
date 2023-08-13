@@ -7,8 +7,7 @@ import Controls from "./Controls";
 
 function Leaderboard() {
 
-    const [chosenSeason, setChosenSeason] = useState("e7a1");
-    const [playersData, setPlayersData] = useState();
+    const [playersData, setPlayersData] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [filter, setFilter] = useState("");
 
@@ -24,7 +23,6 @@ function Leaderboard() {
     useEffect(() => {
         setIsLoading(false);
     }, [playersData])
-
 
     const handleChange = (event) => {
         setFilter(event.target.value);
@@ -45,7 +43,7 @@ function Leaderboard() {
                             <th className="head_item games">{"Games"}</th>
                         </tr>
                     </thead>
-                    { isLoading ?
+                    { playersData === undefined ?
                     <tbody className="spinnerposition">
                         <CustomSpinner/>
                     </tbody> 
@@ -56,7 +54,7 @@ function Leaderboard() {
                             .map((player, index) => 
                             <Player key={player.givenName} name={player.givenName} currentTier={player.MMRData.currentTier}
                                 currentTierPatched={player.MMRData.currentTierPatched} elo={player.MMRData.elo}
-                                images={player.MMRData.images} place={index + 1} season={player.MMRData.seasons[chosenSeason]}/>)
+                                images={player.MMRData.images} place={index + 1} season={player.MMRData.seasons.e7a1}/>)
                         }
                     </tbody> }
                 </table>
